@@ -37,6 +37,8 @@ void	ft_error_file(void);
 char	**read_file(char *file);
 void	ft_error_malloc(char **tab);
 void	free_map(char **map);
+void	invalid_map(char **map);
+int check_norm(char **map);
 
 # define TILE_SIZE 64
 

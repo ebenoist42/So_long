@@ -15,7 +15,11 @@
 int main (int ac, char **av)
 {
 	t_game game;
-	
+	char **map;
 	ft_arg_error(ac, av[1]);
 	game.map = read_file(av[1]);
+	int i = 0;
+	check_norm(game.map)
+	free(map);
+	return (0);
 }

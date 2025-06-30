@@ -19,8 +19,13 @@ static	int	count_ligne(char *file)
 	char *line;
 	
 	fd = open(file, O_RDONLY);
-	if(fd < 0)
-		return(-1);
+	count = 0;
+	if(fd == -1)
+	{
+		write(2,"Error\nUnread File", 18);
+		exit(1);
+	}
+	line = get_next_line(fd);
 	while (line)
 	{
 		count++;
@@ -34,21 +39,23 @@ static	int	count_ligne(char *file)
 static char **read_file_map(char *file, int fd)
 {
 	char	**map;
-	char	**tmp;
 	int		count;
 	char	*line;
+	int i;
 
+	i = 0;
 	count = count_ligne(file);
+	map = malloc(sizeof(char *) * (count + 1));
+	if(!map)
+		ft_error_malloc(map);
 	line = get_next_line(fd);
-	tmp = malloc(sizeof(char *) * (count + 1));
-		if(!tmp)
-			ft_error_malloc(char **tmp);
 	while(line)
 	{	
-		tmp[i] = line;
+		map[i] = line;
 		i++;
+		line = get_next_line(fd);
 	}
-	tmp[count = NULL]
+	map[count] = NULL;
 	return(map);
 }
 
@@ -60,7 +67,7 @@ char **read_file(char *file)
 	fd = open(file, O_RDONLY);
 	if(fd == -1)
 		ft_error_file();
-	map = read_file_map(fd);
+	map = read_file_map(file ,fd);
 	if(!map)
 	{
 		write(2, "Error\nReading Failed", 21);

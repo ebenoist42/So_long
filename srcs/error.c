@@ -36,7 +36,7 @@ void	ft_arg_error(int ac, char *file)
 
 void	ft_error_file(void)
 {
-	write(2, "Error\nWron File", 16);
+	write(2,"Error\nWrong File", 16);
 	exit(1);
 }
 
@@ -56,4 +56,11 @@ void	free_map(char **map)
 	while(map[i])
 		free(map[i++]);
 	free(map);
+}
+
+void	invalid_map(char **map)
+{
+	ft_printf("Error\nInvalid map\n");
+	free_map(map);
+	exit(1);
 }
