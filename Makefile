@@ -6,7 +6,7 @@
 #    By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 10:00:22 by ebenoist          #+#    #+#              #
-#    Updated: 2025/06/27 11:07:21 by ebenoist         ###   ########.fr        #
+#    Updated: 2025/07/09 13:16:14 by ebenoist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,14 @@ CC		= cc -g
 
 CFLAGS	= -Wall -Werror -Wextra -g -Ilibft/includes -Iincludes
 
-SRC		=	srcs/so_long.c\
+SRC		=	srcs/main.c\
 			srcs/error.c\
+			srcs/error2.c\
 			srcs/maps.c\
+			srcs/parse_norm.c\
+			srcs/parse_map_char.c\
+			srcs/path.c\
+			srcs/maps_graphic.c\
 	
 OBJ		= $(SRC:.c=.o)
 

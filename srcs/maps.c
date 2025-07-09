@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 10:30:04 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/01 10:06:43 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:37:34 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ static char **read_file_map(char *file, int fd)
 	{	
 		map[i] = line;
 		i++;
-		free(line);
 		line = get_next_line(fd);
 	}
 	map[count] = NULL;
