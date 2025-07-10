@@ -6,15 +6,14 @@
 #    By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 10:00:22 by ebenoist          #+#    #+#              #
-#    Updated: 2025/07/09 13:16:14 by ebenoist         ###   ########.fr        #
+#    Updated: 2025/07/10 11:50:46 by ebenoist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
 
 CC		= cc -g
-
-CFLAGS	= -Wall -Werror -Wextra -g -Ilibft/includes -Iincludes
+CFLAGS	= -Wall -Werror -Wextra -g -Ilibft/includes -Iincludes -Iminilibx
 
 SRC		=	srcs/main.c\
 			srcs/error.c\
@@ -23,35 +22,39 @@ SRC		=	srcs/main.c\
 			srcs/parse_norm.c\
 			srcs/parse_map_char.c\
 			srcs/path.c\
-			srcs/maps_graphic.c\
-	
+			srcs/maps_graphic.c
+
 OBJ		= $(SRC:.c=.o)
 
-LIBFT_PATH	= ./libft
-LIBFT_H		= $(LIBFT_PATH)/libft.h
-LIBFT		= $(LIBFT_PATH)/libft.a
+LIBFT_DIR	= ./libft
+LIBFT		= $(LIBFT_DIR)/libft.a
+
 MLX_DIR		= ./minilibx
+MLX_LIB		= $(MLX_DIR)/libmlx.a
 MLX_FLAGS	= -L$(MLX_DIR) -lmlx_Linux -lXext -lX11 -lm -lbsd
-MLX_MAKE	= $(MAKE) -C $(MLX_DIR)
 
-all : $(NAME) 
+all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(LIBFT_H)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) $(MLX_FLAGS)
 
 $(LIBFT):
-	@$(MAKE) -C $(LIBFT_PATH)
+	@$(MAKE) -C $(LIBFT_DIR)
+
+$(MLX_LIB):
+	@$(MAKE) -C $(MLX_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ)
-	@$(MAKE) -C $(LIBFT_PATH) clean
-	
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(MLX_DIR) clean
+
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) -C $(LIBFT_PATH) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

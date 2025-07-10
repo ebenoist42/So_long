@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 08:22:49 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/09 14:12:26 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/10 13:41:19 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	init_game(t_game *game)
 	game->win = mlx_new_window(game->mlx, x * TILE_SIZE, y * TILE_SIZE, "so_long");
 	if(!game->win)
 		error_mlx(game);
-	load_images(game);
+	load_image(game);
 	render_map(game);
 }
 
@@ -40,9 +40,7 @@ int main (int ac, char **av)
 	ft_check_norm(game.map);
 	game.moves = 0;
 	init_game(&game);
-	int i = 0;
-	while (game.map[i])
-		free(game.map[i++]);
-	free(game.map);
+	mlx_loop(game.mlx);
+	free_map(game.map);
 	return (0);
 }

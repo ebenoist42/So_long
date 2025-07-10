@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 12:06:20 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/09 14:01:09 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/10 13:18:47 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,17 @@ void	destroy_error(t_game *game)
 		mlx_destroy_image(game->mlx, game->img_player);
 	if (game->img_exit)
 		mlx_destroy_image(game->mlx, game->img_exit);
-	if (game->img_collectible)
-		destroy_collectible(game);
+	if (game->img_collect)
+		mlx_destroy_image(game->mlx, game->img_collect);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free_map(game->map);
+}
+
+void	ft_error_malloc_2(t_game *game)
+{
+	write(2, "Error\nMalloc\n,", 15);
+	destroy_error(game);
+	exit(1);
 }
