@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 09:59:22 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/03 11:17:04 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/12 13:30:04 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	ft_check_exit(char **map)
 	}
 }
 
-static void	ft_check_item(char **map)
+static int	ft_check_item(char **map)
 {
 	int	l;
 	int	i;
@@ -66,6 +66,7 @@ static void	ft_check_item(char **map)
 		free_map(map);
 		exit(1);
 	}
+	return (count);
 }
 static void	ft_check_depart(char **map)
 {
@@ -108,7 +109,8 @@ static void	ft_check_char(char **map)
 		while (map[l][i])
 		{
 			if (map[l][i] != 'C' && map[l][i] != 'P' && map[l][i] != '0'
-				&& map[l][i] != '1' && map[l][i] != 'E' && map[l][i] != '\n')
+				&& map[l][i] != '1' && map[l][i] != 'E' && map[l][i] != '\n'
+				&& map[l][i] != 'M')
 				ft_invalid_map(map);
 			i++;
 		}
@@ -116,10 +118,10 @@ static void	ft_check_char(char **map)
 	}
 }
 
-void	parse_map_char(char **map)
+void	parse_map_char(t_game *game)
 {
-	ft_check_exit(map);
-	ft_check_item(map);
-	ft_check_depart(map);
-	ft_check_char(map);
+	ft_check_exit(game->map);
+	game->collect_count = ft_check_item(game->map);
+	ft_check_depart(game->map);
+	ft_check_char(game->map);
 }

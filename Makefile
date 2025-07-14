@@ -6,7 +6,7 @@
 #    By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 10:00:22 by ebenoist          #+#    #+#              #
-#    Updated: 2025/07/10 11:50:46 by ebenoist         ###   ########.fr        #
+#    Updated: 2025/07/11 13:50:10 by ebenoist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRC		=	srcs/main.c\
 			srcs/parse_norm.c\
 			srcs/parse_map_char.c\
 			srcs/path.c\
-			srcs/maps_graphic.c
+			srcs/maps_graphic.c\
+			srcs/player_moves.c\
+			srcs/player_moves_utils.c
 
 OBJ		= $(SRC:.c=.o)
 

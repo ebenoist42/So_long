@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 09:52:08 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/09 13:13:16 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/11 14:12:49 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ static int	ft_check_wall(char **map)
 	return (1);
 }
 
-void	ft_check_norm(char **map)
+void	ft_check_norm(t_game *game)
 {
-	parse_map_char(map);
-	if (ft_check_squar(map) == 0)
-		ft_invalid_map(map);
-	if (ft_check_wall(map) == 0)
-		ft_invalid_map(map);
-	if (ft_path(map) == 0)
-		ft_invalid_map(map);
+	parse_map_char(game);
+	if (ft_check_squar(game->map) == 0)
+		ft_invalid_map(game->map);
+	if (ft_check_wall(game->map) == 0)
+		ft_invalid_map(game->map);
+	if (ft_path(game->map) == 0)
+		ft_invalid_map(game->map);
 }
