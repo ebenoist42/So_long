@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 10:08:18 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/05/21 11:42:01 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/09 13:13:42 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strjoin_gnl(char *s1, char *s2)
 {
@@ -89,6 +79,6 @@ void	*ft_calloc(size_t ecount, size_t size)
 
 char	*ft_error(char *str)
 {
-	free (str);
+	free(str);
 	return (NULL);
 }
