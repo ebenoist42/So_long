@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 13:15:49 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/12 13:29:58 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:01:59 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	collectible_environent(t_game *game, int *x, int *y)
 {
-		void *current;
+	void	*current;
 
 	if (game->map[*y][*x] == 'P')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player, *x
@@ -97,7 +97,8 @@ void	load_image(t_game *game)
 	game->img_collect = mlx_xpm_file_to_image(game->mlx, "./img/collect.xpm",
 			&i, &i);
 	if (!game->img_wall || !game->img_player || !game->img_floor
-		|| !game->img_exit || !game->img_collect)
+		|| !game->img_exit || !game->img_collect || !game->img_enemy
+		|| !game->img_enemy2)
 		error_load(game);
 	game->frame_delay = 0;
 	game->current_frame = 0;

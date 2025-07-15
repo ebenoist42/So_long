@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 10:30:04 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/12 13:30:01 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:42:48 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static char	**read_file_map(char *file, int fd)
 
 char	**read_file(char *file)
 {
-	int fd;
-	char **map;
+	int		fd;
+	char	**map;
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)

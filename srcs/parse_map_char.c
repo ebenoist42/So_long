@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 09:59:22 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/12 13:30:04 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:42:04 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static int	ft_check_item(char **map)
 	}
 	return (count);
 }
+
 static void	ft_check_depart(char **map)
 {
 	int	i;

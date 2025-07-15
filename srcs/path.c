@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:05:13 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/14 12:00:55 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:55:23 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,14 @@ static void	ft_flood_fill(char **copy, int x, int y)
 {
 	if (x < 0 || y < 0 || !copy[y] || copy[y][x] == '\0')
 		return ;
-	if (copy[y][x] == '1' || copy[y][x] == 'V' || copy[y][x] == 'M')
+	if (copy[y][x] == '1' || copy[y][x] == 'V' || copy[y][x] == 'M'
+		|| copy[y][x] == 'e')
 		return ;
+	if (copy[y][x] == 'E')
+	{
+		copy[y][x] = 'e';
+		return ;
+	}
 	copy[y][x] = 'V';
 	ft_flood_fill(copy, x - 1, y);
 	ft_flood_fill(copy, x + 1, y);
@@ -51,7 +57,7 @@ static void	ft_flood_fill(char **copy, int x, int y)
 	ft_flood_fill(copy, x, y + 1);
 }
 
-static int	ft_check_E_C(char **copy)
+static int	ft_check_ec(char **copy)
 {
 	int	y;
 	int	x;
@@ -86,7 +92,7 @@ int	ft_path(char **map)
 		{
 			if (copy[y][x] == 'P')
 			{
-				ft_flood_fill(copy, y, x);
+				ft_flood_fill(copy, x, y);
 				break ;
 			}
 			x++;
@@ -94,7 +100,7 @@ int	ft_path(char **map)
 		y++;
 	}
 	x = 1;
-	if (!ft_check_E_C(copy))
+	if (!ft_check_ec(copy))
 		x = 0;
 	free_map(copy);
 	return (x);

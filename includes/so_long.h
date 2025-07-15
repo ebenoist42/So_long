@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 09:58:44 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/07/12 13:30:20 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:48:53 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
-# include "../minilibx/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include <fcntl.h>
 
 typedef struct s_game
